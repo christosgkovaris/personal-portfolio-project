@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christos Gkovaris</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header style="display: flex; justify-content: flex-start; align-items: center; width: 100%; margin-bottom: 2rem;">
+            <div id="hire-me" style="cursor: pointer; background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); padding: 8px 16px; border-radius: 50px; display: flex; align-items: center; gap: 8px; transition: all 0.3s ease; width: 300px; justify-content: center;">
+                <span class="pulse-dot" style="background: #22c55e; width: 8px; height: 8px; border-radius: 50%;"></span>
+                <span style="font-size: 0.75rem; font-weight: 700; color: #22c55e; text-transform: uppercase; letter-spacing: 0.5px;" data-i18n="hireStatus">Available for 2026 (Email Me)</span>
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-left: auto;">
+                <button id="lang-cycle" class="btn">🌐 EN / GR / FR</button>
+                <button id="theme-toggle" class="btn">☀️ TOGGLE THEME</button>
+            </div>
+        </header>
+
+        <div class="main-layout">
+            <aside class="bento-box dossier-static">
+                <h3 data-i18n="eduTimelineTitle" style="text-align: center;">JOURNEY & MILESTONES</h3>
+                
+                <div class="timeline-container">
+                    <div class="timeline-item center active">
+                        <div class="timeline-marker"></div>
+                        <p class="timeline-date">FEB-SEPT 2026</p>
+                        <p class="timeline-content" data-i18n="timeThesis">Smart Wishlist Prioritization Flow (Master Thesis)</p>
+                    </div>
+
+                    <div class="timeline-item right">
+                        <div class="timeline-marker"></div>
+                        <p class="timeline-date">OCT-JAN 2025-26</p>
+                        <p class="timeline-content" data-i18n="timeSpring">Neural Classification and Unsupervised Learning</p>
+                    </div>
+
+                    <div class="timeline-item right">
+                        <div class="timeline-marker"></div>
+                        <p class="timeline-date">FEB-JUN 2025</p>
+                        <p class="timeline-content" data-i18n="timeSpringBoot">SpringBoot Traineeship Management System</p>
+                    </div>
+                    
+                    <div class="timeline-item left">
+                        <div class="timeline-marker"></div>
+                        <p class="timeline-date">OCT-JAN 2024-25</p>
+                        <p class="timeline-content" data-i18n="timeMNIST">MLP Classifier for MNIST Digit Recognition</p>
+                    </div>
+
+                    <div class="timeline-item left">
+                        <div class="timeline-marker"></div>
+                        <p class="timeline-date">OCT-JAN 2024-25</p>
+                        <p class="timeline-content" data-i18n="timeTreegram">Treegram App Social Media Platform</p>
+                    </div>
+                    
+                    <div class="timeline-item left">
+                        <div class="timeline-marker"></div>
+                        <p class="timeline-date">FEB-JUN 2023</p>
+                        <p class="timeline-content" data-i18n="timeRobo">Jackal and RRbot Simulations</p>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="bento-grid">
+                <div class="bento-box hero flip-container">
+                    <div class="flip-inner">
+                        <div class="flip-front" style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; text-align: left; padding: 2.5rem;">
+                            <h1 style="margin: 0; line-height: 1.2;">Hello, <br><span id="typewriter"></span><span class="cursor">|</span></h1>
+                            <p data-i18n="heroP" style="margin-top: 1.2rem; max-width: 600px; opacity: 0.9; line-height: 1.6;">Welcome to my digital workspace. I engineer intelligent, full-stack software solutions.</p>
+                        </div>
+                        <div class="flip-back">
+                            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-evenly; text-align: center; padding: 1rem;">
+                                <a href="../docs/resume.pdf" download style="text-decoration: none; color: white; flex: 1; transition: opacity 0.3s;">
+                                    <p style="font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;" data-i18n="resume">RESUME</p>
+                                </a>
+                                <div style="width: 1px; height: 30%; background: var(--box-border); opacity: 0.3;"></div>
+                                <a href="../docs/transcript.pdf" download style="text-decoration: none; color: white; flex: 1; transition: opacity 0.3s;">
+                                    <p style="font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;" data-i18n="academics">ACADEMICS</p>
+                                </a>
+                                <div style="width: 1px; height: 30%; background: var(--box-border); opacity: 0.3;"></div>
+                                <a href="../docs/letters.zip" download style="text-decoration: none; color: white; flex: 1; transition: opacity 0.3s;">
+                                    <p style="font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;" data-i18n="letters">LETTERS</p>
+                                </a>
+                                <div style="width: 1px; height: 30%; background: var(--box-border); opacity: 0.3;"></div>
+                                <a href="../docs/certifications.zip" download style="text-decoration: none; color: white; flex: 1; transition: opacity 0.3s;">
+                                    <p style="font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;" data-i18n="certifications">CERTIFICATIONS</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bento-box status flip-container">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <h3 data-i18n="eduH3">EDUCATION</h3>
+                            <div style="margin: auto; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <p style="font-weight: bold; text-align: center; font-size: 1.05rem; margin-bottom: 0.2rem;" data-i18n="eduDegree">Computer Science & Engineering</p>
+                                <p style="text-align: center; font-size: 0.95rem; opacity: 0.9;" data-i18n="eduUni">University of Ioannina</p>
+                            </div>
+                        </div>
+                        <div class="flip-back">
+                            <div style="margin: auto; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <p style="font-size: 1.05rem; font-weight: bold; margin-bottom: 0.2rem;" data-i18n="eduMaster">MEng (5-year Programme)</p>
+                                <p style="opacity: 0.8; font-size: 0.9rem;" data-i18n="eduGrad">Expected Graduation: 2026</p>
+                                <div style="margin-top: 1rem; border-top: 1px solid var(--box-border); padding-top: 0.8rem; width: 80%;">
+                                    <p style="font-size: 0.75rem; opacity: 0.6; margin-bottom: 0.3rem; letter-spacing: 1px;" data-i18n="eduCourseworkTitle">KEY COURSEWORK</p>
+                                    <p style="font-size: 0.9rem; line-height: 1.4;" data-i18n="eduCourseworkList">Software Engineering, Web Technologies, Neural Networks</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bento-box location flip-container">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <h3 data-i18n="locH3">LOCATION</h3>
+                            <div style="margin: auto; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <p class="time-display" id="live-time" style="margin-bottom: 0.2rem;">00:00:00</p>
+                                <p style="font-size: 0.95rem; opacity: 0.9;" data-i18n="locCity">Ioannina, Epirus (GR)</p>
+                            </div>
+                        </div>
+                        <div class="flip-back">
+                            <div style="margin: auto; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <p style="font-size: 1.05rem; font-weight: bold; margin-bottom: 0.3rem;" data-i18n="workPrefTitle">WORK PREFERENCES</p>
+                                <p style="font-size: 0.95rem; opacity: 0.9;" data-i18n="workPrefRelo">Open to Relocation</p>
+                                <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 0.2rem;" data-i18n="workPrefSwiss">(Strong interest in Switzerland)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bento-box github flip-container">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <h3 style="margin-bottom: 1.5rem; font-weight: bold; color: #3b82f6; text-align: center;" data-i18n="gitTitle">LIVE GITHUB DATA</h3>
+                            <div style="text-align: center; gap: 8px; display: flex; flex-direction: column;">
+                                <p style="font-size: 1rem;"><span data-i18n="gitRepos">Public Repositories</span>: <strong id="repo-count">0</strong></p>
+                                <p style="font-size: 1rem;"><span data-i18n="gitFollowers">Followers</span>: <strong id="follower-count">0</strong></p>
+                                <p style="font-size: 1.1rem; margin-top: 0.5rem; opacity: 0.9;"><span data-i18n="gitCommits">2024 Commits</span>: <strong>342</strong></p>
+                                <div class="git-verified-badge">
+                                    <span style="width: 6px; height: 6px; background-color: #3b82f6; border-radius: 50%;"></span>
+                                    <span style="font-size: 0.7rem; font-weight: bold; color: #3b82f6; text-transform: uppercase;" data-i18n="gitVerified">Verified Contributor</span>
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="flip-back">
+                            <h3 style="margin-bottom: 1.5rem; font-weight: bold; color: white; text-align: center;" data-i18n="gitLang">TOP LANGUAGES</h3>
+                            <div id="languages-container" style="display: flex; flex-direction: column; align-items: center; gap: 10px; width: 100%;">
+                                <p style="font-weight: normal; color: white; opacity: 0.8;" data-i18n="gitFetching">Fetching live data...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bento-box activity flip-container">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <h3 data-i18n="actH3">ACTIVITY</h3>
+                            <div style="margin: auto; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div class="pulse-container">
+                                    <span class="pulse-dot" style="background-color: #ff0000; box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); transform: translateY(1px);"></span>
+                                    <p style="font-weight: bold; font-size: 1.05rem; margin: 0;" data-i18n="curFocus">Current Focus</p>
+                                </div>
+                                <p style="font-size: 0.95rem; opacity: 0.8; margin-top: 0.5rem;" data-i18n="focusSub">Full-Stack & AI Systems</p>
+                            </div>
+                        </div>
+                        <div class="flip-back">
+                            <div style="margin: auto; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <p style="font-size: 1rem; font-weight: bold; margin-bottom: 0.5rem;" data-i18n="sysArch">RECENT INTERESTS</p>
+                                <p style="font-size: 0.9rem; margin-bottom: 0.3rem;" data-i18n="secTitle">Intent-Based Search Ranking</p>
+                                <p style="font-size: 0.9rem; margin-bottom: 0.3rem;" data-i18n="patTitle">Full-Stack System Architecture</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bento-box contact">
+                    <h3 data-i18n="connect">CONNECT</h3>
+                    <div style="margin: auto; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8rem;">
+                        <p><a href="https://www.linkedin.com/in/christosgkovaris" target="_blank" style="text-decoration: none; color: white; opacity: 0.9; font-size: 0.9rem;" data-i18n="conNet">LinkedIn</a></p>
+                        <p><a href="https://github.com/ChristosGkovaris" target="_blank" style="text-decoration: none; color: white; opacity: 0.9; font-size: 0.9rem;" data-i18n="conSrc">GitHub</a></p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

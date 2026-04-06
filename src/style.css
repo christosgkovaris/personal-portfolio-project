@@ -1,0 +1,446 @@
+/* CSS VARIABLES FOR LIGHT/DARK MODE */
+:root {
+    --bg-color: #f4f4f5;
+    --text-color: #18181b;
+    --box-bg: #ffffff;
+    --box-border: #e4e4e7;
+    --shadow: rgba(0, 0, 0, 0.05);
+    --accent: #3b82f6;
+}
+
+[data-theme="dark"] {
+    --bg-color: #09090b;
+    --text-color: #fafafa;
+    --box-bg: #18181b;
+    --box-border: #27272a;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --accent: #60a5fa;
+}
+
+
+/* BASE RESET & TYPOGRAPHY */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* HIDE SCROLLBAR FOR GOOGLE CHROME, SAFARI AND OPERA */
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* HIDE SCROLLBAR FOR IE, EDGE AND Firefox */
+html, body {
+    -ms-overflow-style: none;  /* IE AND EDGE */
+    scrollbar-width: none;     /* FIREFOX */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 2rem;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px; 
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+}
+
+
+/* THE BENTO GRID LAYOUT */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    /* ANIMATION FOR INITIAL LOAD */
+    animation: fadeIn 0.8s ease-out;
+}
+
+
+/* INDIVIDUAL BENTO BOXES */
+.bento-box {
+    background-color: var(--box-bg);
+    border: 1px solid var(--box-border);
+    /* ROUNDED CORNERS */
+    border-radius: 24px; 
+    padding: 2rem;
+    box-shadow: 0 4px 6px var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+/* MICRO-INTERACTION: HOVER EFFECT */
+.bento-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px var(--shadow);
+}
+
+.bento-box.hero {
+    grid-column: 1 / -1; /* Makes the hero span the entire top row */
+    background: linear-gradient(135deg, var(--box-bg), var(--box-border));
+}
+
+.bento-box.location,
+.bento-box.github,
+.bento-box.status,
+.bento-box.activity,
+.bento-box.contact {
+    align-items: center;
+    text-align: center;
+}
+
+.bento-box h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.bento-box h3 { font-size: 1.2rem; margin-bottom: 1rem; color: var(--accent); }
+
+
+/* BUTTONS & UTILITIES */
+.btn {
+    background: var(--text-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s ease;
+}
+
+.btn:hover { opacity: 0.8; }
+
+
+/* TYPEWRITER CURSOR BLINK */
+.cursor {
+    animation: blink 1s step-end infinite;
+    color: var(--accent);
+}
+
+.time-display {
+    font-size: 2rem;
+    font-weight: bold;
+    font-variant-numeric: tabular-nums;
+}
+
+
+/* PULSE ANIMATION FOR "ACTIVITY" BOX */
+.pulse-container { display: flex; align-items: center; gap: 10px; }
+.pulse-dot {
+    width: 12px; height: 12px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    animation: pulse 2s infinite;
+}
+
+
+/* KEYFRAMES */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+
+/* KEYFRAME ANIMATION FOR HIRING BADGE */
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+
+/* SETUP THE 3D SPACE ON THE CONTAINER */
+.bento-box.flip-container {
+    perspective: 1000px; 
+    background: transparent; 
+    border: none; 
+    box-shadow: none; 
+    padding: 0;    
+    /* THIS STOPS THE BOXES FROM COLLAPSING TO 0PX */
+    min-height: 220px; 
+}
+
+
+/* THE INNER WRAPPER THAT PHYSICALLY SPINS */
+.flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    /* THE TRANSITION CONTROLS THE SPEED AND SMOOTHNESS OF THE FLIP */
+    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); 
+    transform-style: preserve-3d;
+}
+
+
+/* TRIGGER THE FLIP WHEN THE MOUSE HOVERS OVER THE CONTAINER */
+.bento-box.flip-container:hover .flip-inner {
+    transform: rotateY(180deg);
+}
+
+
+/* STYLE BOTH THE FRONT AND BACK FACES */
+.flip-front, .flip-back {
+    /* STACK THEM ON TOP OF EACH OTHER */
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    /* HIDES THE BACK OF THE ELEMENT WHEN IT'S FACING AWAY */
+    backface-visibility: hidden; 
+    
+    /* RE-APPLY THE STANDARD BENTO-BOX AESTHETICS TO THE FACES */
+    background-color: var(--box-bg);
+    border: 1px solid var(--box-border);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px var(--shadow);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+/* APPLY OUR EARLIER TRICK TO KEEP TITLES AT THE TOP */
+.flip-front h3, .flip-back h3 {
+    margin-top: 0;
+    margin-bottom: auto;
+}
+
+
+/* FLIP THE BACK FACE BACKWARDS SO IT'S READY TO BE REVEALED */
+.flip-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, var(--box-bg), var(--box-border));
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important; 
+    align-items: center !important; 
+}
+
+/* Style the text inside the back face */
+.flip-back p {
+    color: var(--text-color); /* Bright white in dark mode, black in light mode! */
+    font-size: 1.15rem; 
+    font-weight: bold; /* Makes it completely bold */
+    margin: 0.3rem 0; 
+    text-align: center;
+}
+
+/* --- Link Overrides --- */
+.linkedin-link {
+    color: #ffffff; /* Forces the text to be pure white */
+    text-decoration: none; /* Removes the default browser underline */
+    transition: color 0.2s ease; /* Makes the hover effect smooth */
+}
+
+/* Make it turn your accent blue when someone hovers over it! */
+.linkedin-link:hover {
+    color: var(--accent); 
+}
+
+/* --- Link Overrides --- */
+.github-link {
+    color: #ffffff; /* Forces the text to be pure white */
+    text-decoration: none; /* Removes the default browser underline */
+    transition: color 0.2s ease; /* Makes the hover effect smooth */
+}
+
+/* Make it turn your accent blue when someone hovers over it! */
+.github-link:hover {
+    color: var(--accent); 
+}
+
+/* --- Link Overrides --- */
+.email-link {
+    color: #ffffff; /* Forces the text to be pure white */
+    text-decoration: none; /* Removes the default browser underline */
+    transition: color 0.2s ease; /* Makes the hover effect smooth */
+}
+
+/* Make it turn your accent blue when someone hovers over it! */
+.email-link:hover {
+    color: var(--accent); 
+}
+
+.bento-box.github {
+    grid-row: span 2; /* Tells the grid to make this box 2 rows tall */
+}
+
+/* Style for the new commit graph we are about to add */
+.github-chart-container {
+    margin-top: 2rem;
+    width: 100%;
+    overflow: hidden; /* Keeps the graph neatly inside the box */
+}
+
+.github-chart {
+    width: 100%;
+    /* Scales the image up slightly so the squares are easier to see */
+    transform: scale(1.3); 
+    transform-origin: top center;
+}
+
+/* --- GitHub Box Specific Overrides --- */
+.bento-box.github .flip-back {
+    justify-content: flex-start !important; /* Aligns content to the top */
+    padding-top: 5rem; /* Leaves space so the text doesn't overlap the title */
+}
+
+/* Push the commit footer to the bottom of the card */
+.github-commits-footer {
+    margin-top: auto; /* This magically pushes the footer to the bottom boundary */
+    width: 100%;
+    border-top: 1px solid var(--box-border); 
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* --- CSS Variables --- */
+:root {
+    --bg-color: #f4f4f5;
+    --text-color: #18181b;
+    --box-bg: #ffffff;
+    --box-border: #e4e4e7;
+    --shadow: rgba(0, 0, 0, 0.05);
+    --accent: #3b82f6;
+}
+
+[data-theme="dark"] {
+    --bg-color: #09090b;
+    --text-color: #fafafa;
+    --box-bg: #18181b;
+    --box-border: #27272a;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --accent: #60a5fa;
+}
+
+/* --- Base --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+::-webkit-scrollbar { display: none; }
+html, body { -ms-overflow-style: none; scrollbar-width: none; font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-color); transition: all 0.3s ease; }
+body { padding: 2rem; min-height: 100vh; }
+.container { max-width: 1300px; margin: 0 auto; }
+header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+
+.main-layout {
+    display: flex;
+    gap: 1.5rem;
+    align-items: stretch; /* Change from flex-start to stretch */
+    width: 100%;
+}
+
+/* --- LEFT DOSSIER --- */
+.dossier-static {
+    flex: 0 0 300px;
+    position: sticky;
+    top: 2rem;
+    height: calc(100vh - 4rem);
+    display: flex;
+    flex-direction: column;
+}
+
+/* 1. Remove the border from the container itself */
+.timeline-container {
+    position: relative;
+    margin: 2rem 0;
+    padding: 0 1rem;
+    border-left: none; /* Remove the old line */
+}
+
+/* 2. Create the line with a pseudo-element that ends at the last item */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px; /* Start at first circle */
+    
+    /* Adjust this percentage to stop at the last circle */
+    bottom: 2.5rem; 
+    
+    width: 2px;
+    border-left: 2px dashed var(--box-border);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+    padding-left: 1.5rem;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -7px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background: var(--box-border);
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+}
+
+.timeline-item.active .timeline-marker { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+.timeline-date { font-size: 0.75rem; font-weight: bold; color: var(--accent); margin-bottom: 0.2rem; }
+.timeline-content { font-size: 0.85rem; font-weight: 500; line-height: 1.3; }
+
+/* --- BENTO GRID --- */
+.bento-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.bento-box {
+    background-color: var(--box-bg);
+    border: 1px solid var(--box-border);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px var(--shadow);
+    transition: transform 0.2s ease;
+}
+
+.bento-box.hero { grid-column: 1 / -1; }
+.bento-box h3 { font-size: 1.1rem; margin-bottom: 1rem; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
+
+/* --- FLIP --- */
+.flip-container { perspective: 1000px; padding: 0; min-height: 220px; border: none; background: transparent; }
+.flip-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); transform-style: preserve-3d; }
+.flip-container:hover .flip-inner { transform: rotateY(180deg); }
+.flip-front, .flip-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; background-color: var(--box-bg); border: 1px solid var(--box-border); border-radius: 24px; padding: 2rem; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.flip-back { transform: rotateY(180deg); background: linear-gradient(135deg, var(--box-bg), var(--box-border)); }
+
+/* --- UTILS --- */
+.btn { background: var(--text-color); color: var(--bg-color); border: none; padding: 0.7rem 1.2rem; border-radius: 50px; cursor: pointer; font-weight: 600; font-size: 0.85rem; }
+.cursor { animation: blink 1s step-end infinite; color: var(--accent); }
+.pulse-dot { width: 12px; height: 12px; border-radius: 50%; animation: pulse 2s infinite; }
+.git-verified-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(59, 130, 246, 0.1); padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(59, 130, 246, 0.3); margin-top: 0.5rem; }
+
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
